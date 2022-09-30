@@ -37,7 +37,7 @@ void loop(){
 
 float calcVoltage(){
   value = analogRead(voltageInput);
-  Vin = (value * 5.0)/1023;
+  Vout = (value * 5.0)/1023;
   Vin = Vout / (R2/(R1+R2));
   return map(Vin, 12.8, 16.8, 0, 100);
 }

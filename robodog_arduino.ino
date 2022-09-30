@@ -15,7 +15,9 @@ int value = 0;
 int voltageInput = 0;
 float voltage;
 long last_time = 0;
-const int battery_time = 5000;
+const int battery_timeout = 5000;
+
+
 void setup(){
   Serial.begin(115200);
   nh.getHardware()->setBaud(115200);
@@ -24,7 +26,7 @@ void setup(){
 }
 
 void loop(){
-  if ((millis() - last_time) > battery_time) {
+  if ((millis() - last_time) > battery_timeout) {
     float perc = calcVoltage();
     publishBattery(perc);
     Serial.println(perc);

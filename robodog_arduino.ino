@@ -39,7 +39,7 @@ float calcVoltage(){
   value = analogRead(voltageInput);
   Vin = (value * 5.0)/1023;
   Vin = Vout / (R2/(R1+R2));
-  return map(Vin, 0, 33.6, 0, 100);
+  return map(Vin, 12.8, 16.8, 0, 100);
 }
 
 void publishBattery(float perc){
